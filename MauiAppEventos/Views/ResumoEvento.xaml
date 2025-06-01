@@ -1,0 +1,29 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventos.Views.ResumoEvento"
+             Title="Resumo do Evento"
+             BackgroundColor="#0F172A">
+    
+
+    <Grid>
+       
+        <Image Source="eventos.jpg" Aspect="AspectFill" Opacity="0.3" />
+
+        
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="15">
+
+                <Label Text="{Binding Nome}" FontSize="28" FontAttributes="Bold" TextColor="#FBBF24" HorizontalOptions="Center" />
+
+                <Label Text="{Binding DataInicio, StringFormat='Data Início: {0:dd/MM/yyyy}'}" TextColor="White" FontSize="18" />
+                <Label Text="{Binding DataFim, StringFormat='Data Fim: {0:dd/MM/yyyy}'}" TextColor="White" FontSize="18" />
+                <Label Text="{Binding DuracaoDias, StringFormat='Duração (dias): {0}'}" TextColor="White" FontSize="18" />
+                <Label Text="{Binding NumeroParticipantes, StringFormat='Participantes: {0}'}" TextColor="White" FontSize="18" />
+                <Label Text="{Binding Local, StringFormat='Local: {0}'}" TextColor="White" FontSize="18" />
+                <Label Text="{Binding CustoPorParticipante, StringFormat='Custo por participante: R$ {0:F2}'}" TextColor="White" FontSize="18" />
+                <Label Text="{Binding CustoTotal, StringFormat='Custo total: R$ {0:F2}'}" TextColor="#FBBF24" FontSize="20" FontAttributes="Bold" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
