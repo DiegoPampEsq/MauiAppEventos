@@ -6,10 +6,8 @@
 
     <Grid>
 
-        <!-- Imagem de fundo -->
         <Image Source="eventos1.jpg" Aspect="AspectFill" Opacity="0.4" />
 
-        <!-- Conteúdo do evento -->
         <ScrollView>
             <VerticalStackLayout Padding="20" Spacing="15">
 

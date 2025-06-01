@@ -8,14 +8,12 @@
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="20">
 
-            <!-- Imagem com proporção correta -->
             <Frame Padding="0" CornerRadius="16" HasShadow="True" BorderColor="#facc15">
                 <Image Source="eventos.jpg"
                        Aspect="AspectFit"
                        HeightRequest="180" />
             </Frame>
 
-            <!-- Formulário estilizado -->
             <Frame BackgroundColor="#fff7ed"
                    CornerRadius="16"
                    Padding="20"
