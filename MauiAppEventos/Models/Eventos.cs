@@ -5,14 +5,16 @@ namespace MauiAppEventos.Models
 {
     public class Evento : INotifyPropertyChanged
     {
-        private string nome;
+        private string nome = string.Empty;
         private DateTime dataInicio;
         private DateTime dataFim;
         private int numeroParticipantes;
-        private string local;
+        private string local = string.Empty;
         private double custoPorParticipante;
 
-        // Propriedades existentes
+        private int duracaoDias;
+        private double custoTotal;
+
         public string Nome
         {
             get => nome;
@@ -91,12 +93,10 @@ namespace MauiAppEventos.Models
             }
         }
 
-        // Novas propriedades calculadas (com backing fields e notificações)
-        private int duracaoDias;
         public int DuracaoDias
         {
             get => duracaoDias;
-            set
+            private set
             {
                 if (duracaoDias != value)
                 {
@@ -106,11 +106,10 @@ namespace MauiAppEventos.Models
             }
         }
 
-        private double custoTotal;
         public double CustoTotal
         {
             get => custoTotal;
-            set
+            private set
             {
                 if (custoTotal != value)
                 {
@@ -120,8 +119,14 @@ namespace MauiAppEventos.Models
             }
         }
 
-        // Implementação do INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
+        // Método para calcular duração e custo total
+        public void CalcularDuracaoECusto()
+        {
+            DuracaoDias = (DataFim - DataInicio).Days + 1;
+            CustoTotal = DuracaoDias * NumeroParticipantes * CustoPorParticipante;
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

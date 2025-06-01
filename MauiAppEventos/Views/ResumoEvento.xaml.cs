@@ -11,9 +11,7 @@ public partial class ResumoEvento : ContentPage
         InitializeComponent();
 
         Evento = evento;
-
-        Evento.DuracaoDias = (evento.DataFim - evento.DataInicio).Days + 1;
-        Evento.CustoTotal = Evento.DuracaoDias * Evento.NumeroParticipantes * Evento.CustoPorParticipante;
+        Evento.CalcularDuracaoECusto();
 
         BindingContext = Evento;
     }
