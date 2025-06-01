@@ -1,27 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="MauiAppEventos.Views.CadastroEvento"
              Title="Cadastro de Evento"
-             BackgroundColor="#F0F4F8">
-    <!-- Fundo claro suave -->
+             BackgroundColor="#fff7ed">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+        <VerticalStackLayout Spacing="20" Padding="20">
 
-            <Label Text="Cadastro de Evento" FontSize="32" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#1E3A8A" />
-            <!-- Texto azul escuro -->
+            <!-- Imagem com proporção correta -->
+            <Frame Padding="0" CornerRadius="16" HasShadow="True" BorderColor="#facc15">
+                <Image Source="eventos.jpg"
+                       Aspect="AspectFit"
+                       HeightRequest="180" />
+            </Frame>
 
-            <Entry Placeholder="Nome do evento" Text="{Binding Nome}" TextColor="#0F172A" PlaceholderColor="#64748B" />
-            <DatePicker Date="{Binding DataInicio}" MinimumDate="{x:Static sys:DateTime.Now}" TextColor="#0F172A" />
-            <DatePicker Date="{Binding DataFim}" MinimumDate="{Binding DataInicio}" TextColor="#0F172A" />
-            <Entry Placeholder="Número de participantes" Keyboard="Numeric" Text="{Binding NumeroParticipantes}" TextColor="#0F172A" PlaceholderColor="#64748B" />
-            <Entry Placeholder="Local do evento" Text="{Binding Local}" TextColor="#0F172A" PlaceholderColor="#64748B" />
-            <Entry Placeholder="Custo por participante" Keyboard="Numeric" Text="{Binding CustoPorParticipante}" TextColor="#0F172A" PlaceholderColor="#64748B" />
+            <!-- Formulário estilizado -->
+            <Frame BackgroundColor="#fff7ed"
+                   CornerRadius="16"
+                   Padding="20"
+                   HasShadow="True"
+                   BorderColor="#dc2626">
 
-            <Button Text="Cadastrar" Clicked="OnCadastrarClicked" BackgroundColor="#FBBF24" TextColor="#1E3A8A" />
+                <VerticalStackLayout Spacing="16">
 
+                    <Label Text="Nome do Evento"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="#b91c1c" />
+                    <Entry Placeholder="Ex: Encontro Cultural"
+                           Text="{Binding Nome}"
+                           BackgroundColor="#fef3c7"
+                           TextColor="#7f1d1d" />
+
+                    <Label Text="Local do Evento"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="#b91c1c" />
+                    <Entry Placeholder="Ex: Teatro Municipal"
+                           Text="{Binding Local}"
+                           BackgroundColor="#fef3c7"
+                           TextColor="#7f1d1d" />
+
+                    <Label Text="Data de Início"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="#b91c1c" />
+                    <DatePicker Date="{Binding DataInicio}"
+                                BackgroundColor="#fef3c7"
+                                TextColor="#7f1d1d" />
+
+                    <Label Text="Data de Término"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="#b91c1c" />
+                    <DatePicker Date="{Binding DataTermino}"
+                                BackgroundColor="#fef3c7"
+                                TextColor="#7f1d1d" />
+
+                    <Label Text="Número de Participantes"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="#b91c1c" />
+                    <Entry Placeholder="Ex: 50"
+                           Keyboard="Numeric"
+                           Text="{Binding NumeroParticipantes}"
+                           BackgroundColor="#fef3c7"
+                           TextColor="#7f1d1d" />
+
+                    <Label Text="Custo por Participante (R$)"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="#b91c1c" />
+                    <Entry Placeholder="Ex: 80.00"
+                           Keyboard="Numeric"
+                           Text="{Binding CustoPorParticipante}"
+                           BackgroundColor="#fef3c7"
+                           TextColor="#7f1d1d" />
+
+                    <Button Text="Cadastrar Evento"
+                            Clicked="OnCadastrarClicked"
+                            BackgroundColor="#dc2626"
+                            TextColor="White"
+                            FontSize="16"
+                            Padding="14"
+                            CornerRadius="12" />
+                </VerticalStackLayout>
+            </Frame>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
